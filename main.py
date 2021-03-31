@@ -1,13 +1,11 @@
 from dataclasses import dataclass, asdict
 from enum import Enum
 import json
-from os import path
-import pathlib
 import random
 import re
 import sys
 
-
+DB_PATH = r'C:\Windows\SysWOW64\Scripts\db.json'
 HEBREW_REGEX = re.compile("^[\u0590-\u05fe ]+$")
 
 
@@ -28,10 +26,6 @@ class Question:
     repeats: int = 0
     correct_repeats: int = 0
 
-    @property
-    def _path(self):
-        return path.join(pathlib.Path(__file__).parent.absolute(), "db.json")
-
     def get_question(self) -> str:
         if is_hebrew(self.question):
             return self.question[::-1]
@@ -49,9 +43,11 @@ class Question:
 
         response = input(f"Question: {self.get_question()}\nAnswer: ")
         if response.strip() == self.answer.strip():
+            print("You're correct!")
             self.correct_repeats += 1
             return True
 
+        print(f"You're wrong! :(\nReal answer: {self.get_answer()}")
         return False
 
     def get_percent(self) -> str:
@@ -64,13 +60,13 @@ class JsonDB:
         self._read()
 
     def _read(self):
-        with open("db.json", "r") as f:
+        with open(DB_PATH, "r") as f:
             content = f.read()
         self.db = json.loads(content)
 
     def _write(self):
         content = json.dumps(self.db)
-        with open("db.json", "w") as f:
+        with open(DB_PATH, "w") as f:
             f.write(content)
 
     def add_question(self, question: Question):
