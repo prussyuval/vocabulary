@@ -10,10 +10,12 @@ from .bank import Bank
 from .logging import print_colorful_log, ColorText, get_colorful_text
 from .picker import QuestionPicker
 from .question import Question
+from .console import safe_print
 
 
 DB_PATH = r'C:\Windows\SysWOW64\Scripts\db.json'
 SUCCESS_RATE = 80
+NEW_LINE = '\n'
 
 
 class JsonDB:
@@ -56,7 +58,28 @@ class JsonDB:
     def add_topic(self):
         bank = Bank()
         topics = bank.get_topics()
-        print_colorful_log(f"Available topics:\n {'n'.join(topics)}", color=ColorText.WHITE)
+        print_colorful_log("Available topics:", color=ColorText.WHITE)
+        for i, t in enumerate(topics, start=1):
+            print_colorful_log(f"[{i}] {safe_print(t)}", color=ColorText.WHITE)
+        topic_number = InputInterface.input_options("Select topic number: ", options=[str(x + 1)
+                                                                                      for x in range(len(topics))])
+
+        words = bank.get_words(topics[int(topic_number) - 1])
+
+        print_colorful_log("Pushed words:", color=ColorText.WHITE)
+        for question, answer in words.items():
+            print_colorful_log(f"{safe_print(question)} => {answer}", color=ColorText.WHITE)
+
+        res = InputInterface.input_options(f"DO you approve adding those words to your vocabulary? [y/n] ", ['y', 'n'])
+        if res == 'n':
+            print_colorful_log("Words skipped successfully", color=ColorText.GREEN)
+            return
+
+        for question, answer in words.items():
+            question = Question(question=question, answer=answer)
+            self.db.append(asdict(question))
+        self._write()
+        print_colorful_log("Words added successfully", color=ColorText.GREEN)
 
     def pick_question(self, picker: QuestionPicker):
         random_index = picker.pick_index

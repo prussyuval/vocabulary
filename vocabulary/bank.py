@@ -14,7 +14,6 @@ class Bank:
         self.data = requests.get(self.BANK_URL).json()
 
     def get_topics(self) -> List[str]:
-        import pdb; pdb.set_trace()
         return [
             topic['topic']
             for topic in self.data

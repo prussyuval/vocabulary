@@ -1,4 +1,3 @@
-import re
 from datetime import datetime, timedelta
 from dataclasses import dataclass
 from typing import Optional
@@ -6,14 +5,10 @@ import random
 import math
 
 from .args import InputInterface
+from .console import safe_print
 from .logging import print_colorful_log, ColorText
 
-HEBREW_REGEX = re.compile("^[\u0590-\u05fe ]+$")
 HINT_RATIO = 0.5
-
-
-def is_hebrew(string) -> bool:
-    return bool(HEBREW_REGEX.match(string))
 
 
 @dataclass
@@ -33,16 +28,10 @@ class Question:
             self.last_appearance_time = datetime.strptime(self.last_appearance_time, "%Y-%m-%d %H:%M:%S.%f")
 
     def get_question(self) -> str:
-        if is_hebrew(self.question):
-            return self.question[::-1]
-
-        return self.question
+        return safe_print(self.question)
 
     def get_answer(self) -> str:
-        if is_hebrew(self.answer):
-            return self.answer[::-1]
-
-        return self.answer
+        return safe_print(self.answer)
 
     def get_hint(self) -> str:
         length = len(self.answer)

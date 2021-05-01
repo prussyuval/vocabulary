@@ -21,23 +21,23 @@
 		}
 	},
 	{
-		"topic": "מאכלם",
-		"words:": {
-			"'יפס": "Fries",
-			"בינה": "Cheese",
-			"ג": "Fish",
-			"וגה": "Pie",
-			"וגיות": "Cookies",
-			"ומוס": "Hummus",
-			"חם": "Bread",
-			"טשופ": "Ketchup",
-			"יבה": "Jam",
-			"יצה": "Pizza",
-			"יתה": "Pita",
-			"מאה": "Butter",
-			"מבורגר": "Hamburger",
-			"קניקיה": "Hot dog",
-			"שר": "Meat"
+		"topic": "מאכלים",
+		"words": {
+			"צ'יפס": "Fries",
+			"גבינה": "Cheese",
+			"דג": "Fish",
+			"עוגה": "Pie",
+			"עוגיות": "Cookies",
+			"חומוס": "Hummus",
+			"לחם": "Bread",
+			"קטשופ": "Ketchup",
+			"ריבה": "Jam",
+			"פיצה": "Pizza",
+			"פיתה": "Pita",
+			"חמאה": "Butter",
+			"המבורגר": "Hamburger",
+			"נקניקיה": "Hot dog",
+			"בשר": "Meat"
 		}
 	}
 ]
