@@ -2,43 +2,42 @@
 	{
 		"topic": "משרד",
 		"words": {
+			"אינטרנט": "Internet",
+			"דף": "Page",
+			"טלפון": "Phone",
+			"מגרסה": "Paper Shredder",
+			"מדפסת": "Printer",
 			"מחשב": "Computer",
 			"מסך": "Screen",
-			"מקלדת": "Keyboard",
-			"עכבר": "Mouse",
-			"אינטרנט": "Internet",
-			"מדפסת": "Printer",
-			"שולחן כתיבה": "Desk",
-			"טלפון": "Phone",
-			"פקס": "Fax",
-			"סורק": "Scanner",
-			"שדכן": "Stapler",
-			"ניירת מכתבים": "Stationery",
 			"מסמך": "Document",
-			"דף": "Page",
+			"מקלדת": "Keyboard",
 			"נייר": "Paper",
-			"מגרסה": "Paper Shredder"
-		},
+			"ניירת מכתבים": "Stationery",
+			"סורק": "Scanner",
+			"עכבר": "Mouse",
+			"פקס": "Fax",
+			"שדכן": "Stapler",
+			"שולחן כתיבה": "Desk"
+		}
 	},
 	{
 		"topic": "מאכלם",
 		"words:": {
-			"חם": "Bread",
-			"ג": "Fish",
+			"'יפס": "Fries",
 			"בינה": "Cheese",
-			"יצה": "Egg",
-			"שר": "Meat",
-			"מאה": "Butter",
-			"יבה": "Jam",
+			"ג": "Fish",
 			"וגה": "Pie",
 			"וגיות": "Cookies",
-			"'יפס": "Fries",
+			"ומוס": "Hummus",
+			"חם": "Bread",
 			"טשופ": "Ketchup",
+			"יבה": "Jam",
+			"יצה": "Pizza",
+			"יתה": "Pita",
+			"מאה": "Butter",
 			"מבורגר": "Hamburger",
 			"קניקיה": "Hot dog",
-			"יצה": "Pizza",
-			"ומוס": "Hummus",
-			"יתה": "Pita"
-		},
+			"שר": "Meat"
+		}
 	}
 ]

@@ -1,12 +1,12 @@
 from dataclasses import asdict
 from typing import List
 import json
-import random
 
 from googletrans import Translator
 from prettytable import PrettyTable
 
 from .args import InputInterface
+from .bank import Bank
 from .logging import print_colorful_log, ColorText, get_colorful_text
 from .picker import QuestionPicker
 from .question import Question
@@ -52,6 +52,11 @@ class JsonDB:
         self.db.append(asdict(question))
         self._write()
         print_colorful_log("Question added successfully!", color=ColorText.GREEN)
+
+    def add_topic(self):
+        bank = Bank()
+        topics = bank.get_topics()
+        print_colorful_log(f"Available topics:\n {'n'.join(topics)}", color=ColorText.WHITE)
 
     def pick_question(self, picker: QuestionPicker):
         random_index = picker.pick_index

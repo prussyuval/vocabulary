@@ -21,6 +21,8 @@ if __name__ == '__main__':
         db.answer_question(amount=amount)
     elif action == Action.ADD:
         db.add_question()
+    elif action == Action.ADD_TOPIC:
+        db.add_topic()
     elif action == Action.STATS:
         db.print_stats()
         sys.exit(0)
