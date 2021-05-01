@@ -1,0 +1,44 @@
+[
+	{
+		"topic": "משרד",
+		"words": {
+			"מחשב": "Computer",
+			"מסך": "Screen",
+			"מקלדת": "Keyboard",
+			"עכבר": "Mouse",
+			"אינטרנט": "Internet",
+			"מדפסת": "Printer",
+			"שולחן כתיבה": "Desk",
+			"טלפון": "Phone",
+			"פקס": "Fax",
+			"סורק": "Scanner",
+			"שדכן": "Stapler",
+			"ניירת מכתבים": "Stationery",
+			"מסמך": "Document",
+			"דף": "Page",
+			"נייר": "Paper",
+			"מגרסה": "Paper Shredder"
+		},
+	},
+	{
+		"topic": "מאכלם",
+		"words:": {
+			"חם": "Bread",
+			"ג": "Fish",
+			"בינה": "Cheese",
+			"יצה": "Egg",
+			"שר": "Meat",
+			"מאה": "Butter",
+			"יבה": "Jam",
+			"וגה": "Pie",
+			"וגיות": "Cookies",
+			"'יפס": "Fries",
+			"טשופ": "Ketchup",
+			"מבורגר": "Hamburger",
+			"קניקיה": "Hot dog",
+			"יצה": "Pizza",
+			"ומוס": "Hummus",
+			"יתה": "Pita"
+		},
+	}
+]
