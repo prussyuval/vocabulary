@@ -39,5 +39,37 @@
 			"נקניקיה": "Hot dog",
 			"בשר": "Meat"
 		}
+	},
+	{
+		"topic": "פקודות bash בסיסיות",
+		"words": {
+			"List all files and directories in the present working directory": "ls",
+			"List files in sub-directories as well": "ls -R",
+			"List hidden files as well": "ls -a",
+			"List files and directories with detailed information like permissions,size, owner, etc.": "ls -al",
+			"Navigate to HOME directory": "cd or cd ~",
+			"Move one level up": "cd ..",
+			"Move to /root directory": "cd /root",
+			"Move to the root directory": "cd /",
+			"Create a new file 'filename'": "cat > filename",
+			"Display 'filename' content": "cat filename",
+			"Joins two files (file1, file2) and stores the output in a new file (file3)": "cat file1 file2 > file3",
+			"Moves 'file' the files to the new location 'new_path'": "mv file new_path",
+			"Renames 'filename' to 'new_filename'": "mv filename new_filename",
+			"Delete 'filename'": "rm filename",
+			"Get help information on a command": "man",
+			"Get a list of all past commands typed in the current terminal session": "history",
+			"Clear the terminal": "clear",
+			"Create a new directory 'newdir' in the present working directory": "mkdir newdir",
+			"Delete a directory 'newdir' in the present working directory": "rmdir newdir",
+			"Rename a directory 'newdir' to 'newnamedir'": "mv newdir newnamedir",
+			"Install and update packages": "apt-get"
+		}
+	},
+	{
+		"topic": "פקודות bash מתקדמות",
+		"words": {
+			"Command for: 'Capture and display all packets on interface eth0'": "tcpdump -i eth0",
+		}
 	}
 ]
