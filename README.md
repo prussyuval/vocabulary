@@ -1,11 +1,37 @@
-### configuration
+### Available actions
 
-Open scheduled task manager
+### Answer
 
-#### Trigger:
-- One time
-- Repeat task every: 1 hour
+##### Usage:
+- answer on a question
+```
+$ vocabulary answer
+```
+- answer on 10 questions in a row
+```
+$ vocabulary answer -n 10
+```
 
-#### Actions:
-- Program/script: cmd
-- Add arguments: /k C:\Windows\SysWOW64\Scripts\vocabulary.exe
+#### Add
+
+##### Usage:
+- add a question (follow the instruction)
+```
+$ vocabulary add
+```
+
+#### Add topic
+
+#### Usage:
+- add a collection of questions (follow the instruction)
+```
+$ vocabulary add_topic
+```
+
+#### Get statistics
+
+#### Usage:
+- get statistics
+```
+$ vocabulary stats
+```

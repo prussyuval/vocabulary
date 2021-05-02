@@ -2,6 +2,7 @@ import sys
 
 from vocabulary.action import Action
 from vocabulary.args import get_desired_action, get_desired_question_amounts
+from vocabulary.bank import UnrecognizedTopic
 from vocabulary.db import JsonDB
 from vocabulary.logging import print_colorful_log, ColorText
 
@@ -22,7 +23,10 @@ if __name__ == '__main__':
     elif action == Action.ADD:
         db.add_question()
     elif action == Action.ADD_TOPIC:
-        db.add_topic()
+        try:
+            db.add_topic()
+        except UnrecognizedTopic:
+            print_colorful_log("Unrecognized topic!", color=ColorText.RED)
     elif action == Action.STATS:
         db.print_stats()
         sys.exit(0)
