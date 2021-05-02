@@ -63,13 +63,18 @@
 			"Create a new directory 'newdir' in the present working directory": "mkdir newdir",
 			"Delete a directory 'newdir' in the present working directory": "rmdir newdir",
 			"Rename a directory 'newdir' to 'newnamedir'": "mv newdir newnamedir",
-			"Install and update packages": "apt-get"
+			"Install and update packages": "apt-get",
+			"Print current working directory": "pwd"
 		}
 	},
 	{
 		"topic": "פקודות bash מתקדמות",
 		"words": {
 			"Command for: 'Capture and display all packets on interface eth0'": "tcpdump -i eth0",
+			"Resolve DNS name for myserver": "dig myserver",
+			"Run the last command with sudo permissions": "sudo !!",
+			"Show my external IP": "curl ifconfig.me"
+
 		}
 	}
 ]
