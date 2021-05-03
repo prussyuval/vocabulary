@@ -78,7 +78,8 @@
 			"Lists system messages": "dmesg",
 			"Check network throughput and ensure if it is under the limit": "sar -N DEV 1",
 			"Show swap device usage": "swapon -s",
-			"Show processes for all users with process's owner and processes which not attached to a terminal": "ps aux"
+			"Show processes for all users with process's owner and processes which not attached to a terminal": "ps aux",
+			"Start classic server on port 80": "nc -vv -l -k -p 80"
 		}
 	}
 ]
