@@ -8,8 +8,8 @@ from prettytable import PrettyTable
 from .args import InputInterface
 from .bank import Bank
 from .logging import print_colorful_log, ColorText, get_colorful_text
-from .picker import QuestionPicker
-from .question import Question
+from .picker import CardPicker
+from .card import Card
 from .console import safe_print
 
 
@@ -49,11 +49,11 @@ class JsonDB:
         if res == 'n':
             answer = InputInterface.input("Enter answer: ")
 
-        question = Question(question=question, answer=answer)
+        question = Card(question=question, answer=answer)
 
         self.db.append(asdict(question))
         self._write()
-        print_colorful_log("Question added successfully!", color=ColorText.GREEN)
+        print_colorful_log("Card added successfully!", color=ColorText.GREEN)
 
     def add_topic(self):
         bank = Bank()
@@ -76,23 +76,23 @@ class JsonDB:
             return
 
         for question, answer in words.items():
-            question = Question(question=question, answer=answer)
+            question = Card(question=question, answer=answer)
             self.db.append(asdict(question))
         self._write()
         print_colorful_log("Words added successfully", color=ColorText.GREEN)
 
-    def pick_question(self, picker: QuestionPicker):
+    def pick_question(self, picker: CardPicker):
         random_index = picker.pick_index
         question = self.db[random_index]
 
-        return Question(**question), random_index
+        return Card(**question), random_index
 
     def answer_question(self, amount: int):
         if len(self.db) == 0:
             print_colorful_log("DB is empty!", color=ColorText.YELLOW)
             return
 
-        picker = QuestionPicker(self.db)
+        picker = CardPicker(self.db)
         for _ in range(amount):
             q, index = self.pick_question(picker)
             q.perform_answer()
@@ -104,7 +104,7 @@ class JsonDB:
         question_id = int(InputInterface.input("Enter question id to remove: "))
         self.db.pop(question_id)
         self._write()
-        print_colorful_log("Question removed successfully!", color=ColorText.GREEN)
+        print_colorful_log("Card removed successfully!", color=ColorText.GREEN)
 
     def print_stats(self):
         if len(self.db) == 0:
@@ -113,7 +113,7 @@ class JsonDB:
 
         t = PrettyTable(['ID', 'Question', 'Answer', 'Tries', 'Correct', 'Percent', 'Success Lately', 'Last answered'])
         for i, instance in enumerate(self.db):
-            q = Question(**instance)
+            q = Card(**instance)
 
             success_color = ColorText.GREEN if not q.was_answered_wrong_lately else ColorText.RED
             was_answered_wrong_lately = get_colorful_text(str(not q.was_answered_wrong_lately), success_color)

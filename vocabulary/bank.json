@@ -47,7 +47,7 @@
 			"List files in sub-directories as well": "ls -R",
 			"List hidden files as well": "ls -a",
 			"List files and directories with detailed information like permissions,size, owner, etc.": "ls -al",
-			"Navigate to HOME directory": "cd or cd ~",
+			"Navigate to HOME directory": "cd ~",
 			"Move one level up": "cd ..",
 			"Move to /root directory": "cd /root",
 			"Move to the root directory": "cd /",

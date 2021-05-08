@@ -12,7 +12,7 @@ HINT_RATIO = 0.5
 
 
 @dataclass
-class Question:
+class Card:
     question: str
     answer: str
     repeats: int = 0
@@ -52,7 +52,7 @@ class Question:
         response = ""
 
         while response == "":  # To avoid oopsies
-            print_colorful_log(f'Question: {self.get_question()}', bold=True)
+            print_colorful_log(f'Card: {self.get_question()}', bold=True)
             response = InputInterface.input("Answer [? for hint]: ")
 
         response = response.strip().lower()
@@ -62,7 +62,7 @@ class Question:
             hint = True
 
             while response == "":  # To avoid oopsies
-                print_colorful_log(f'Question: {self.get_question()}', bold=True)
+                print_colorful_log(f'Card: {self.get_question()}', bold=True)
             response = InputInterface.input("Answer: ")
 
         response = response.strip().lower()

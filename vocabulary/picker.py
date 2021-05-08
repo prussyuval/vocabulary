@@ -4,16 +4,16 @@ The picking strategy is - the more a question was answered correctly, the less c
 """
 import random
 
-from vocabulary.question import Question
+from vocabulary.card import Card
 
 
-class QuestionPicker:
-    def __init__(self, questions: list):
+class CardPicker:
+    def __init__(self, cards: list):
         self.weights = list()
-        self._initiate_weights(questions)
+        self._initiate_weights(cards)
 
-    def _initiate_weights(self, questions: list):
-        self.weights = [100 - Question(**q).success_percent for q in questions]
+    def _initiate_weights(self, cards: list):
+        self.weights = [100 - Card(**c).success_percent for c in cards]
 
     @property
     def pick_index(self):
