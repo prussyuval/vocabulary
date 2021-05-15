@@ -1,7 +1,6 @@
 import re
 
-
-HEBREW_REGEX = re.compile("^[\u0590-\u05fe ]+$")
+HEBREW_REGEX = re.compile("^[\u0590-\u05fe ,()-]+$")
 
 
 def _is_hebrew(string: str) -> bool:
