@@ -106,5 +106,5 @@ class JsonDB:
         self._write()
         print_colorful_log("Card removed successfully!", color=ColorText.GREEN)
 
-    def print_stats(self):
-        StatsManager.print_stats(self.db)
+    def print_stats(self, full_text: bool = False):
+        StatsManager.print_stats(self.db, full_text)

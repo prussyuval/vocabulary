@@ -9,6 +9,7 @@ from .console import safe_print
 from .logging import print_colorful_log, ColorText
 
 HINT_RATIO = 0.5
+SAFE_TEXT_CHARACTER_NUMBER = 20
 
 
 @dataclass
@@ -19,6 +20,7 @@ class Card:
     correct_repeats: int = 0
     last_wrong_answer_time: Optional[datetime] = None
     last_appearance_time: datetime = datetime.now()
+    creation_time: datetime = datetime.now()
 
     def __post_init__(self):
         if isinstance(self.last_wrong_answer_time, str):
@@ -27,8 +29,12 @@ class Card:
         if isinstance(self.last_appearance_time, str):
             self.last_appearance_time = datetime.strptime(self.last_appearance_time, "%Y-%m-%d %H:%M:%S.%f")
 
-    def get_question(self) -> str:
-        return safe_print(self.question)
+    def get_question(self, full_text: bool = True) -> str:
+        text = safe_print(self.question)
+        if not full_text:
+            text = text[:SAFE_TEXT_CHARACTER_NUMBER]
+
+        return text
 
     def get_answer(self) -> str:
         return safe_print(self.answer)
