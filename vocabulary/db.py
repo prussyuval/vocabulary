@@ -1,5 +1,5 @@
 from dataclasses import asdict
-from typing import List
+from typing import List, Optional
 import json
 
 from googletrans import Translator
@@ -105,6 +105,19 @@ class JsonDB:
         self.db.pop(question_id)
         self._write()
         print_colorful_log("Card removed successfully!", color=ColorText.GREEN)
+
+    def _set_is_archive_attribute(self, new_value: bool, card_id: Optional[int] = None):
+        for i, q in enumerate(self.db):
+            if not card_id or card_id == i:
+                q['is_archived'] = new_value
+
+        self._write()
+
+    def archive_cards(self, card_id: Optional[int] = None):
+        self._set_is_archive_attribute(True, card_id)
+
+    def unarchive_cards(self, card_id: Optional[int] = None):
+        self._set_is_archive_attribute(False, card_id)
 
     def print_stats(self, full_text: bool = False):
         StatsManager.print_stats(self.db, full_text)

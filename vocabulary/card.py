@@ -21,6 +21,7 @@ class Card:
     last_wrong_answer_time: Optional[datetime] = None
     last_appearance_time: datetime = datetime.now()
     creation_time: datetime = datetime.now()
+    is_archived: bool = False
 
     def __post_init__(self):
         if isinstance(self.last_wrong_answer_time, str):

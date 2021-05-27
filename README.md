@@ -35,3 +35,27 @@ $ vocabulary add_topic
 ```
 $ vocabulary stats
 ```
+
+#### Archive card.s
+
+#### Usage:
+- archive all cards
+```
+$ vocabulary archive
+```
+- archive a card with the id of 12
+```
+$ vocabulary archive --id 12
+```
+
+#### Unarchive card.s
+
+#### Usage:
+- undo the archiving action all cards
+```
+$ vocabulary unarchive
+```
+- undo the archiving action on the card with the id of 12
+```
+$ vocabulary unarchive --id 12
+```

@@ -20,6 +20,8 @@ if __name__ == '__main__':
                         help='amount of questions to answer (default: 1)')
     parser.add_argument('-m', dest='mode', type=Mode, default=Mode.REGULAR, choices=list(Mode),
                         help='answering mode type')
+    parser.add_argument('-id', dest='id', type=int, default=None,
+                        help='card id action target (to delete or to archive)')
     parser.add_argument('--full', dest='full_text', action='store_true', default=False,
                         help='show all lines without truncating')
     args = parser.parse_args()
@@ -39,9 +41,14 @@ if __name__ == '__main__':
             print_colorful_log("Unrecognized topic!", color=ColorText.RED)
     elif action == Action.STATS:
         db.print_stats(args.full_text)
-        sys.exit(0)
     elif action == Action.REMOVE:
         db.remove_question()
+    elif action == Action.ARCHIVE:
+        db.archive_cards(args.id)
+    elif action == Action.UNARCHIVE:
+        db.unarchive_cards(args.id)
+
+    if not action.is_waitable_actions:
         sys.exit(0)
 
     wait_for_exit()

@@ -25,6 +25,10 @@ class CardPicker:
         for c in cards:
             card = Card(**c)
             weight = 100 - card.success_percent
+
+            if card.is_archived:
+                weight = 0
+
             if self.mode == Mode.TRAINING and card.success_percent > TRAINING_MODE:
                 weight = 0
 
