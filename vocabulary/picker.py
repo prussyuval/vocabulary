@@ -21,7 +21,5 @@ class CardPicker:
             weight = card.get_weight(max_repeats, self.mode)
             self.weights.append(weight)
 
-        print(self.weights)
-
     def pick_index(self):
         return random.choices(range(len(self.weights)), self.weights, k=1)[0]
