@@ -8,7 +8,8 @@ from prettytable import PrettyTable
 from .args import InputInterface
 from .bank import Bank
 from .logging import print_colorful_log, ColorText
-from .picker import CardPicker, Mode
+from .picker import CardPicker
+from .mode import Mode
 from .card import Card
 from .console import safe_print
 from vocabulary.stats import StatsManager

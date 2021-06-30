@@ -7,8 +7,10 @@ import math
 from .args import InputInterface
 from .console import safe_print
 from .logging import print_colorful_log, ColorText
+from .mode import Mode
 
 HINT_RATIO = 0.5
+TRAINING_MODE = 80
 SAFE_TEXT_CHARACTER_NUMBER = 20
 
 
@@ -29,6 +31,9 @@ class Card:
 
         if isinstance(self.last_appearance_time, str):
             self.last_appearance_time = datetime.strptime(self.last_appearance_time, "%Y-%m-%d %H:%M:%S.%f")
+
+        if isinstance(self.creation_time, str):
+            self.creation_time = datetime.strptime(self.creation_time, "%Y-%m-%d %H:%M:%S.%f")
 
     def get_question(self, full_text: bool = True) -> str:
         text = safe_print(self.question)
@@ -92,6 +97,15 @@ class Card:
             return 0
 
         return round(float(self.correct_repeats) / float(self.repeats) * 100, 2)
+
+    def get_weight(self, max_repeats: int, mode: Mode) -> float:
+        if self.is_archived:
+            return 0
+
+        if mode == Mode.TRAINING and self.success_percent > TRAINING_MODE:
+            return 0
+
+        return 100 - (self.success_percent * (self.repeats / max_repeats))
 
     @property
     def was_answered_wrong_lately(self) -> bool:

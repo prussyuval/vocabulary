@@ -4,7 +4,7 @@ import sys
 from vocabulary.action import Action
 from vocabulary.bank import UnrecognizedTopic
 from vocabulary.db import JsonDB
-from vocabulary.picker import Mode
+from vocabulary.mode import Mode
 from vocabulary.logging import print_colorful_log, ColorText
 
 

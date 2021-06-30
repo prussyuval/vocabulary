@@ -2,17 +2,10 @@
 Class for picking question purposes.
 The picking strategy is - the more a question was answered correctly, the less changes it'll be picked.
 """
-from enum import Enum
 import random
 
 from vocabulary.card import Card
-
-TRAINING_MODE = 80
-
-
-class Mode(Enum):
-    REGULAR = 'regular'
-    TRAINING = 'training'
+from vocabulary.mode import Mode
 
 
 class CardPicker:
@@ -22,17 +15,13 @@ class CardPicker:
         self._initiate_weights(cards)
 
     def _initiate_weights(self, cards: list):
+        max_repeats = max(c['repeats'] for c in cards)
         for c in cards:
             card = Card(**c)
-            weight = 100 - card.success_percent
-
-            if card.is_archived:
-                weight = 0
-
-            if self.mode == Mode.TRAINING and card.success_percent > TRAINING_MODE:
-                weight = 0
-
+            weight = card.get_weight(max_repeats, self.mode)
             self.weights.append(weight)
+
+        print(self.weights)
 
     def pick_index(self):
         return random.choices(range(len(self.weights)), self.weights, k=1)[0]
